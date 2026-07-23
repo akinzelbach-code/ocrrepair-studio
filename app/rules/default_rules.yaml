@@ -1,0 +1,15 @@
+- name: missing_sz
+  pattern: "Stra e"
+  replacement: "Straße"
+
+- name: missing_umlaut_ae
+  pattern: "Sch den"
+  replacement: "Schäden"
+
+- name: missing_umlaut_ue
+  pattern: "f r"
+  replacement: "für"
+
+- name: published
+  pattern: "ver ffentlicht"
+  replacement: "veröffentlicht"

@@ -1,11 +1,15 @@
 """Regel-Engine."""
 
 from app.core.change import Change
-from app.rules.default_rules import DEFAULT_RULES
+from app.rules.rule_loader import RuleLoader
 
 
 class RuleEngine:
     """Verarbeitet alle OCR-Regeln."""
+
+    def __init__(self) -> None:
+        loader = RuleLoader()
+        self.rules = loader.load()
 
     def apply(
         self,
@@ -16,7 +20,7 @@ class RuleEngine:
 
         all_changes: list[Change] = []
 
-        for rule in DEFAULT_RULES:
+        for rule in self.rules:
             text, changes = rule.apply(text, paragraph_number)
             all_changes.extend(changes)
 
