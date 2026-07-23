@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ocrrepair-studio"
+version = "0.1.0-alpha"
+description = "Intelligente Reparatur von OCR- und PDF→Word-Konvertierungsfehlern in DOCX-Dateien."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [
+    { name = "Jose" }
+]
+
+dependencies = [
+    "python-docx>=1.1.2",
+    "lxml>=5.2.0",
+    "rapidfuzz>=3.9.0",
+    "symspellpy>=6.7.8",
+    "pyyaml>=6.0.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2",
+    "ruff>=0.5",
+    "black>=24.4",
+    "mypy>=1.10",
+]
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
