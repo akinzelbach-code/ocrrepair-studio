@@ -3,18 +3,26 @@ OCRRepair Studio
 
 Absatz 5
 Regel: missing_sz
-Stra\s+e -> Straße
+Stra e -> Straße
+
+Absatz 6
+Regel: missing_sz
+Stra  e -> Straße
 
 Absatz 7
+Regel: missing_sz
+Stra   e -> Straße
+
+Absatz 8
 Regel: missing_umlaut_ae
 Sch den -> Schäden
 
-Absatz 9
+Absatz 10
 Regel: missing_umlaut_ue
 f r -> für
 
-Absatz 11
+Absatz 12
 Regel: published
 ver ffentlicht -> veröffentlicht
 
-Gesamt: 4 Änderungen
+Gesamt: 6 Änderungen

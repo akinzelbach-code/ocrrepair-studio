@@ -5,7 +5,6 @@ from dataclasses import dataclass
 from app.core.document import Document
 from app.rules.rule_engine import RuleEngine
 
-
 @dataclass(slots=True)
 class RepairEngine:
     """Zentrale Steuerung der Reparatur."""
@@ -20,7 +19,12 @@ class RepairEngine:
     def repair(self, document: Document) -> Document:
         """Repariert ein Dokument."""
 
-        rules = RuleEngine()
+        from app.rules.rule_loader import RuleLoader
+
+        loader = RuleLoader()
+        loaded_rules = loader.load("app/rules")
+
+        rules = RuleEngine(loaded_rules)
 
         all_changes = []
 

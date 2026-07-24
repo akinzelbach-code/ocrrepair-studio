@@ -1,28 +1,29 @@
-"""Lädt OCR-Regeln aus einer YAML-Datei."""
-import re
 from pathlib import Path
-
 import yaml
 
 from app.rules.rule import Rule
 
 
 class RuleLoader:
-    """Lädt Regeln aus YAML."""
+    """Lädt alle YAML-Regeldateien."""
 
-    def load(self) -> list[Rule]:
-        yaml_file = Path(__file__).parent / "default_rules.yaml"
+    def load(self, directory: str) -> list[Rule]:
+        rules = []
 
-        with yaml_file.open("r", encoding="utf-8") as file:
-            data = yaml.safe_load(file)
+        root = Path(directory)
 
-        return [
-    Rule(
-        name=item["name"],
-        pattern=item["pattern"],
-        replacement=item["replacement"],
-        regex=item.get("regex", False),
-    )
-    for item in data
-]
-        
+        for file in sorted(root.rglob("*.yaml")):
+            with open(file, "r", encoding="utf-8") as f:
+                data = yaml.safe_load(f) or []
+
+            for item in data:
+                rules.append(
+                    Rule(
+                        name=item["name"],
+                        pattern=item["pattern"],
+                        replacement=item["replacement"],
+                        regex=item.get("regex", False),
+                    )
+                )
+
+        return rules

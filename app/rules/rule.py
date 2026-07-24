@@ -28,15 +28,15 @@ class Rule:
             if not matches:
                 return text, changes
 
-            for _ in matches:
+            for match in matches:
                 changes.append(
                     Change(
                         paragraph=paragraph_number,
                         rule=self.name,
-                        original=self.pattern,
+                        original=match.group(0),
                         replacement=self.replacement,
-                    )
-                )
+        )
+    )
 
             text = re.sub(self.pattern, self.replacement, text)
 

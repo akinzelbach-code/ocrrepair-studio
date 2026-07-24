@@ -8,7 +8,9 @@ from app.io.writer import DocumentWriter
 def main() -> None:
     engine = RepairEngine()
     engine.start()
+    from pathlib import Path
 
+    print(Path("examples/test.docx").resolve())
     reader = DocumentReader()
     document = reader.read("examples/test.docx")
     document = engine.repair(document)
