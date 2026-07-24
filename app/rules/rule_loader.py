@@ -17,10 +17,12 @@ class RuleLoader:
             data = yaml.safe_load(file)
 
         return [
-            Rule(
-                name=item["name"],
-                pattern=item["pattern"],
-                replacement=item["replacement"],
-            )
-            for item in data
-        ]
+    Rule(
+        name=item["name"],
+        pattern=item["pattern"],
+        replacement=item["replacement"],
+        regex=item.get("regex", False),
+    )
+    for item in data
+]
+        
