@@ -1,0 +1,20 @@
+OCRRepair Studio
+=================
+
+Absatz 5
+Regel: missing_sz
+Stra e -> Straße
+
+Absatz 7
+Regel: missing_umlaut_ae
+Sch den -> Schäden
+
+Absatz 9
+Regel: missing_umlaut_ue
+f r -> für
+
+Absatz 11
+Regel: published
+ver ffentlicht -> veröffentlicht
+
+Gesamt: 4 Änderungen

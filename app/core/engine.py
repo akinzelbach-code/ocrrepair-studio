@@ -1,5 +1,5 @@
 """Kern der OCR-Reparatur."""
-
+from app.core.report import ReportWriter
 from dataclasses import dataclass
 
 from app.core.document import Document
@@ -32,6 +32,10 @@ class RepairEngine:
 
             all_changes.extend(changes)
 
-        print(f"\nÄnderungen: {len(all_changes)}")
+            report = ReportWriter()
+        report.write(all_changes)
 
-        return document
+        print(f"\nÄnderungen: {len(all_changes)}")
+        print("Bericht gespeichert: OCRRepair_Report.txt")
+
+        return document     
