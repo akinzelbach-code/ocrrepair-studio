@@ -1,5 +1,5 @@
 """Lädt OCR-Regeln aus einer YAML-Datei."""
-
+import re
 from pathlib import Path
 
 import yaml

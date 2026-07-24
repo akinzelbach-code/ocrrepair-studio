@@ -3,7 +3,7 @@ OCRRepair Studio
 
 Absatz 5
 Regel: missing_sz
-Stra e -> Straße
+Stra\s+e -> Straße
 
 Absatz 7
 Regel: missing_umlaut_ae
