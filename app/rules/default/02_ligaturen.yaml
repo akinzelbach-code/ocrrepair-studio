@@ -1,0 +1,26 @@
+- name: ligatur ﬁ 
+  pattern: "ﬁ"
+  replacement: "fi"
+  regex: true
+
+- name: ligatur ﬂ
+  pattern: "ﬂ"
+  replacement: "fl"
+  regex: true
+
+- name: ligatur ﬀ
+  pattern: "ﬀ"
+  replacement: "ff"
+  regex: true
+
+
+- name: ligatur ﬃ
+  pattern: "ﬃ"
+  replacement: "ffi"
+  regex: true
+
+- name: ligatur ﬄ
+  pattern: "ﬄ"
+  replacement: "ffl"
+  regex: true
+
