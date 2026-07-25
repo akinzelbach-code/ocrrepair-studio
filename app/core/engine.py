@@ -1,7 +1,7 @@
 """Kern der OCR-Reparatur."""
 
 from dataclasses import dataclass, field
-
+from app.logger import logger
 from app import config
 from app.core.document import Document
 from app.core.report import ReportWriter
@@ -24,8 +24,9 @@ class RepairEngine:
         self.rule_engine = RuleEngine(loaded_rules)
 
     def start(self) -> None:
-        print(f"{self.name} {self.version}")
-        print("Repair Engine gestartet.")
+        
+        logger.info("%s %s", self.name, self.version)
+        logger.info("Repair Engine gestartet.")
 
     def repair(self, document: Document) -> Document:
         """Repariert ein Dokument."""
@@ -42,7 +43,7 @@ class RepairEngine:
         report = ReportWriter()
         report.write(all_changes)
 
-        print(f"\nÄnderungen: {len(all_changes)}")
-        print(f"Bericht gespeichert: {config.REPORT_FILE}")
+        logger.info("Änderungen: %d", len(all_changes))
+        logger.info("Bericht gespeichert: %s", config.REPORT_FILE)
 
         return document

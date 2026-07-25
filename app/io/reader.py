@@ -3,7 +3,7 @@
 from docx import Document as WordDocument
 
 from app.core.document import Document
-
+from app.logger import logger
 
 class DocumentReader:
     """Liest ein Word-Dokument ein."""
@@ -15,5 +15,11 @@ class DocumentReader:
 
         for paragraph in word.paragraphs:
             document.add_paragraph(paragraph.text)
+
+        logger.info(
+            "Dokument erfolgreich eingelesen (%d Absätze)",
+            document.paragraph_count,
+        )
+
 
         return document
