@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtuelle Umgebung
+.venv/
+venv/
+
+# Reports
+OCRRepair_Report.txt
+
+# Testausgaben
+examples/test_korrigiert.docx

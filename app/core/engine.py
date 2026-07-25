@@ -1,16 +1,27 @@
 """Kern der OCR-Reparatur."""
-from app.core.report import ReportWriter
-from dataclasses import dataclass
 
+from dataclasses import dataclass, field
+
+from app import config
 from app.core.document import Document
+from app.core.report import ReportWriter
 from app.rules.rule_engine import RuleEngine
+from app.rules.rule_loader import RuleLoader
+
 
 @dataclass(slots=True)
 class RepairEngine:
     """Zentrale Steuerung der Reparatur."""
 
-    name: str = "OCRRepair Studio"
-    version: str = "0.3.0-alpha"
+    name: str = config.APP_NAME
+    version: str = config.VERSION
+
+    rule_engine: RuleEngine = field(init=False)
+
+    def __post_init__(self) -> None:
+        loader = RuleLoader()
+        loaded_rules = loader.load(config.RULES_DIR)
+        self.rule_engine = RuleEngine(loaded_rules)
 
     def start(self) -> None:
         print(f"{self.name} {self.version}")
@@ -19,27 +30,19 @@ class RepairEngine:
     def repair(self, document: Document) -> Document:
         """Repariert ein Dokument."""
 
-        from app.rules.rule_loader import RuleLoader
-
-        loader = RuleLoader()
-        loaded_rules = loader.load("app/rules")
-
-        rules = RuleEngine(loaded_rules)
-
         all_changes = []
 
         for paragraph_number, paragraph in enumerate(document.paragraphs, start=1):
-            paragraph.text, changes = rules.apply(
+            paragraph.text, changes = self.rule_engine.apply(
                 paragraph.text,
                 paragraph_number,
             )
-
             all_changes.extend(changes)
 
-            report = ReportWriter()
+        report = ReportWriter()
         report.write(all_changes)
 
         print(f"\nÄnderungen: {len(all_changes)}")
-        print("Bericht gespeichert: OCRRepair_Report.txt")
+        print(f"Bericht gespeichert: {config.REPORT_FILE}")
 
-        return document     
+        return document

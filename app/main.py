@@ -4,7 +4,7 @@ from app.core.engine import RepairEngine
 from app.core.engine import RepairEngine
 from app.io.reader import DocumentReader
 from app.io.writer import DocumentWriter
-
+from app import config
 def main() -> None:
     engine = RepairEngine()
     engine.start()
@@ -12,10 +12,10 @@ def main() -> None:
 
     print(Path("examples/test.docx").resolve())
     reader = DocumentReader()
-    document = reader.read("examples/test.docx")
+    document = reader.read(config.INPUT_FILE)
     document = engine.repair(document)
     writer = DocumentWriter()
-    writer.write(document, "examples/test_korrigiert.docx")
+    writer.write(document, config.OUTPUT_FILE)
     print()
     print("Dokument erfolgreich gelesen.")
     print(f"Absätze: {document.paragraph_count}")
