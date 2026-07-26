@@ -1,5 +1,5 @@
 import pytest
-
+from app.rules.exceptions import RuleValidationError
 from app.rules.rule_loader import RuleLoader
 
 
@@ -9,6 +9,8 @@ def test_rule_loader_loads_temporary_yaml(tmp_path):
     yaml_file.write_text(
         """
 - name: test_rule
+  description: Testregel
+  category: test
   pattern: Test
   replacement: Prüfung
 """,
@@ -27,11 +29,8 @@ def test_rule_loader_loads_temporary_yaml(tmp_path):
     assert rule.pattern == "Test"
     assert rule.replacement == "Prüfung"
     assert rule.regex is False
-
-    import pytest
-
-from app.rules.rule_loader import RuleLoader
-
+    assert rule.description == "Testregel"
+    assert rule.category == "test"
 
 def test_rule_loader_missing_replacement(tmp_path):
     yaml_file = tmp_path / "rules.yaml"
@@ -39,12 +38,19 @@ def test_rule_loader_missing_replacement(tmp_path):
     yaml_file.write_text(
         """
 - name: test_rule
+  description: Testregel
+  category: test
   pattern: Test
-    """,
+  
+""",
         encoding="utf-8",
     )
 
     loader = RuleLoader()
 
-    with pytest.raises(KeyError):
+    with pytest.raises(RuleValidationError) as exc_info:
         loader.load(str(tmp_path))
+
+    assert "replacement" in str(exc_info.value)
+    assert "rules.yaml" in str(exc_info.value)
+   

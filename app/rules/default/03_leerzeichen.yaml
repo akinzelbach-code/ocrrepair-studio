@@ -1,12 +1,12 @@
 - name: double_space
-  description: Doppelte Leerzeichen entfernen
-  category: leerzeichen
+  description="Testregel"
+  category="test"
   pattern: "  "
   replacement: " "
 
 - name: space_before_comma
-  description: Leerzeichen vor Komma entfernen
-  category: interpunktion
+  description="Testregel"
+  category="test"
   pattern: " ,"
   replacement: ","
 

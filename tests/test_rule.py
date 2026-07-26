@@ -6,6 +6,8 @@ from app.rules.rule import Rule
 def test_simple_replacement():
     rule = Rule(
         name="Straße",
+        description="Testregel",
+        category="test",
         pattern="Stra e",
         replacement="Straße",
     )
@@ -29,6 +31,8 @@ def test_simple_replacement():
 def test_ligatures(pattern, replacement, input_text, expected):
     rule = Rule(
         name="ligature",
+        description="Testregel",
+        category="test",
         pattern=pattern,
         replacement=replacement,
     )
@@ -42,6 +46,8 @@ def test_ligatures(pattern, replacement, input_text, expected):
 def test_no_match():
     rule = Rule(
         name="ligature",
+        description="Testregel",
+        category="test",
         pattern="ﬁ",
         replacement="fi",
     )
@@ -55,6 +61,8 @@ def test_no_match():
 def test_multiple_matches():
     rule = Rule(
         name="ligature",
+        description="Testregel",
+        category="test",
         pattern="ﬁ",
         replacement="fi",
     )
@@ -67,6 +75,8 @@ def test_multiple_matches():
 def test_regex_replacement():
     rule = Rule(
         name="digits",
+        description="Zahlen ersetzen",
+        category="test",
         pattern=r"\d+",
         replacement="#",
         regex=True,
@@ -94,8 +104,10 @@ from app.rules.rule import Rule
     ],
 )
 def test_whitespace_rules(pattern, replacement, input_text, expected):
-    rule = Rule(
+    rule = Rule (
         name="whitespace",
+        description="Testregel",
+        category="test",
         pattern=pattern,
         replacement=replacement,
     )

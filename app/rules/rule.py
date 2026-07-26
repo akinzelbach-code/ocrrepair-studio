@@ -9,6 +9,8 @@ from app.core.change import Change
 @dataclass(slots=True)
 class Rule:
     name: str
+    description: str
+    category: str
     pattern: str
     replacement: str
     regex: bool = False

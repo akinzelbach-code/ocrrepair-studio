@@ -1,25 +1,35 @@
 - name: ligatur ﬁ 
   pattern: "ﬁ"
+  description="Testregel"
+  category="test"
   replacement: "fi"
   regex: true
 
 - name: ligatur ﬂ
+  description="Testregel"
+  category="test"
   pattern: "ﬂ"
   replacement: "fl"
   regex: true
 
 - name: ligatur ﬀ
+  description="Testregel"
+  category="test"
   pattern: "ﬀ"
   replacement: "ff"
   regex: true
 
 
 - name: ligatur ﬃ
+  description="Testregel"
+  category="test"
   pattern: "ﬃ"
   replacement: "ffi"
   regex: true
 
 - name: ligatur ﬄ
+  description="Testregel"
+  category="test"
   pattern: "ﬄ"
   replacement: "ffl"
   regex: true

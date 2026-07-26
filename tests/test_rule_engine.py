@@ -6,11 +6,15 @@ def test_rule_engine_applies_all_rules():
     rules = [
         Rule(
             name="street",
+            description="street",
+            category="street",
             pattern="Stra e",
             replacement="Straße",
         ),
         Rule(
             name="opening",
+            description="opening",
+            category="opening",
             pattern="Offnung",
             replacement="Öffnung",
         ),
