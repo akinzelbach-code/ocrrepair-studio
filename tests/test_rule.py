@@ -79,3 +79,28 @@ def test_regex_replacement():
 
     assert text == "Es gibt # Patienten und # Ärzte."
     assert len(changes) == 2
+
+    import pytest
+
+from app.rules.rule import Rule
+
+
+@pytest.mark.parametrize(
+    "pattern,replacement,input_text,expected",
+    [
+        ("  ", " ", "Das  ist", "Das ist"),
+        (" ,", ",", "Hallo , Welt", "Hallo, Welt"),
+        (" .", ".", "Das Ende .", "Das Ende."),
+    ],
+)
+def test_whitespace_rules(pattern, replacement, input_text, expected):
+    rule = Rule(
+        name="whitespace",
+        pattern=pattern,
+        replacement=replacement,
+    )
+
+    result, changes = rule.apply(input_text, 1)
+
+    assert result == expected
+    assert len(changes) == 1

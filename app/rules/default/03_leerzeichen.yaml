@@ -1,0 +1,17 @@
+- name: double_space
+  description: Doppelte Leerzeichen entfernen
+  category: leerzeichen
+  pattern: "  "
+  replacement: " "
+
+- name: space_before_comma
+  description: Leerzeichen vor Komma entfernen
+  category: interpunktion
+  pattern: " ,"
+  replacement: ","
+
+- name: space_before_period
+  description: Leerzeichen vor Punkt entfernen
+  category: interpunktion
+  pattern: " ."
+  replacement: "."
