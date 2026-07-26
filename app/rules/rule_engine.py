@@ -1,7 +1,7 @@
 """Regel-Engine."""
 
 from app.core.change import Change
-from app.rules.rule_loader import RuleLoader
+
 
 
 class RuleEngine:
