@@ -3,6 +3,8 @@
 from pathlib import Path
 
 from app.core.change import Change
+from collections import Counter
+
 
 
 class ReportWriter:
@@ -25,7 +27,16 @@ class ReportWriter:
                 file.write(f"Absatz {change.paragraph}\n")
                 file.write(f"Regel: {change.rule}\n")
                 file.write(
-                    f"{change.original} -> {change.replacement}\n\n"
-                )
+                     f"{change.original} -> {change.replacement}\n\n"
+    )
 
+            counts = Counter(change.rule for change in changes)
+
+            file.write("-----------------\n")
+            file.write("Nach Regeln\n\n")
+
+            for rule, count in sorted(counts.items()):
+                file.write(f"{rule}: {count}\n")
+
+            file.write("\n")
             file.write(f"Gesamt: {len(changes)} Änderungen\n")
