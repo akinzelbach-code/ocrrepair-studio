@@ -36,7 +36,7 @@ class ReportWriter:
             file.write("Nach Regeln\n\n")
 
             for rule, count in sorted(counts.items()):
-                file.write(f"{rule}: {count}\n")
+                file.write(f"{rule:<25} {count:>3}\n")
 
             file.write("\n")
             file.write(f"Gesamt: {len(changes)} Änderungen\n")

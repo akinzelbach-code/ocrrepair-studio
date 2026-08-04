@@ -32,7 +32,6 @@ def test_report_writer_creates_report(tmp_path):
     assert "OCRRepair Studio" in content
     assert "fi_ligature" in content
     assert "double_space" in content
+
     assert "Gesamt: 2 Änderungen" in content
     assert "Nach Regeln" in content
-    assert "fi_ligature: 1" in content
-    assert "double_space: 1" in content

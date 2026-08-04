@@ -1,13 +1,13 @@
 - name: missing_sz
-  description="missing_sz",
-  category="missing_sz",
+  description: "Ersetzt fehlendes ß",
+  category: "orthography",
   pattern: "Stra\\s+e"
   replacement: "Straße"
   regex: true
 
 - name: missing_umlaut_ae
-  description="missing_umlaut_ae",
-  category="missing_umlaut_ae",
+  description: "Ersetzt fehlendes Umlaut-ä"
+  category: "orthography"
   pattern: "Sch den"
   replacement: "Schäden"
 
@@ -18,7 +18,7 @@
   replacement: "für"
 
 - name: published
-  description="published",
-  category="published",
+  description: "Ersetzt fehlendes ö",
+  category: "orthography",
   pattern: "ver ffentlicht"
   replacement: "veröffentlicht"
