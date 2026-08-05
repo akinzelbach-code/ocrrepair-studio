@@ -12,8 +12,8 @@
   replacement: "Schäden"
 
 - name: missing_umlaut_ue
-  description="missing_umlaut_ue",
-  category="missing_umlaut_ue",
+  description: "Ersetzt fehlendes Umlaut-ü"
+  category: "orthography"
   pattern: "f r"
   replacement: "für"
 

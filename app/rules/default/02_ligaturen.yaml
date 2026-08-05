@@ -1,33 +1,33 @@
-- name: ligatur ﬁ 
+- name: ligatur_ﬁ
   pattern: "ﬁ"
-  description="Testregel"
+  description: "Ersetzt die Ligatur ﬁ durch fi"
   category: "ligatures"
   replacement: "fi"
   regex: true
 
-- name: ligatur ﬂ
-  description="Testregel"
+- name: ligatur_ﬂ
+  description: "Ersetzt die Ligatur ﬂ durch fl"
   category: "ligatures"
   pattern: "ﬂ"
   replacement: "fl"
   regex: true
 
-- name: ligatur ﬀ
-  description="Testregel"
+- name: ligatur_ﬀ
+  description: "Ersetzt die Ligatur ﬀ durch ff"
   category: "ligatures"
   pattern: "ﬀ"
   replacement: "ff"
   regex: true
 
-- name: ligatur ﬃ
-  description="Testregel"
+- name: ligatur_ﬃ
+  description: "Ersetzt die Ligatur ﬃ durch ffi"
   category: "ligatures"
   pattern: "ﬃ"
   replacement: "ffi"
   regex: true
 
-- name: ligatur ﬄ
-  description="Testregel"
+- name: ligatur_ﬄ
+  description: "Ersetzt die Ligatur ﬄ durch ffl"
   category: "ligatures"
   pattern: "ﬄ"
   replacement: "ffl"
