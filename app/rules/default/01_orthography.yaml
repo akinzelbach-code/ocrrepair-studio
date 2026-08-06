@@ -17,8 +17,15 @@
   pattern: "f r"
   replacement: "für"
 
-- name: published
-  description: "Ersetzt fehlendes ö",
-  category: "orthography",
+- name: missing_umlaut_oe
+  description: "Ersetzt fehlendes Umlaut-ö"
+  category: "orthography"
   pattern: "ver ffentlicht"
   replacement: "veröffentlicht"
+
+- name: euro_symbol
+  description: "Ersetzt OCR-Fehler beim Euro-Zeichen."
+  category: "orthography"
+  pattern: "EU R"
+  replacement: "EUR"
+  regex: false
