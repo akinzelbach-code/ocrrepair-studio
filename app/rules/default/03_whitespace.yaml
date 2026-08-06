@@ -1,0 +1,29 @@
+- name: double_space
+  description: "Ersetzt doppelte Leerzeichen."
+  category: "whitespace"
+  pattern: "  "
+  replacement: " "
+
+- name: space_before_comma
+  description: "Entfernt Leerzeichen vor Kommas."
+  category: "whitespace"
+  pattern: " ,"
+  replacement: ","
+
+- name: space_before_period
+  description: "Entfernt Leerzeichen vor Punkten."
+  category: "whitespace"
+  pattern: " ."
+  replacement: "."
+
+- name: space_after_opening_parenthesis
+  description: "Entfernt Leerzeichen nach einer öffnenden Klammer."
+  category: "whitespace"
+  pattern: "( "
+  replacement: "("
+
+- name: space_before_closing_parenthesis
+  description: "Entfernt Leerzeichen vor einer schließenden Klammer."
+  category: "whitespace"
+  pattern: " )"
+  replacement: ")"
